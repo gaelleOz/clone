@@ -1,25 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Fifth navbar example">
+<nav class="navbar navbar-light bg-light" aria-label="Fifth navbar example">
     <div class="container-fluid">
-    <%= link_to 'Airbnb', root_path, {:class=> "navbar-brand"} %>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <%= link_to 'Airbnb', root_path, :class => "titre" %>
+     
       </button>
 
       <div  id="navbarsExample05">
         <ul class="navbar-nav navbar-right">
         <% if (!user_signed_in?) %>
-
+          
           <li><%= link_to "Inscription", new_user_registration_path %></li>
           <li><%= link_to "Connexion", new_user_session_path %></li>
 
         <% else %>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.email %> </a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= image_tag avatar_url(current_user), class: 'avatar-small' %> <%= current_user.fullname %> </a>
             <ul class="dropdown-menu" aria-labelledby="dropdown05">
-              <li><%= link_to 'Mes voyages', root_path %></li>
-              <li><%= link_to 'Modifier mon profil', edit_user_registration_path %></li>
-              <li><%= link_to "Déconnexion", destroy_user_session_path, :method => :delete  %></li>
+            
+              <li><%= link_to 'Mes voyages', root_path, :class => "liens" %></li>
+              <li><%= link_to 'Modifier mon profil', edit_user_registration_path, :class => "liens" %></li>
+              <li><%= link_to "Déconnexion", destroy_user_session_path, :class => "liens", :method => :delete  %></li>
             </ul>
           </li>
           <% end %>
