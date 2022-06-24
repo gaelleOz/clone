@@ -2,10 +2,14 @@
     <div class="container-fluid">
     <%= link_to 'Airbnb', root_path, :class => "titre" %>
      
-      </button>
 
       <div  id="navbarsExample05">
         <ul class="navbar-nav navbar-right">
+          <li>
+            <%= link_to new_room_path do %>
+              <i class= "fa fa-home fa-lg"></i>Devenez hôte
+            <% end %>
+          </li>
         <% if (!user_signed_in?) %>
           
           <li><%= link_to "Inscription", new_user_registration_path %></li>
